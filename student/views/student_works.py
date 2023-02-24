@@ -29,6 +29,11 @@ class TeacherStudentWorksModelViewSet(
     ]
     pagination_class = SelectorPagination
 
+    def get_serializer_context(self):
+        context = super().get_serializer_context()
+        context['teacher'] = self.request.user
+        return context
+
 
 class TodayStudentWorksModelViewSet(
     ReadOnlyModelViewSet

@@ -8,6 +8,7 @@ class StudentWork(Model):
     student = ForeignKey(to=ClientSystem, on_delete=CASCADE, related_name='student_works', verbose_name='Студент')
     work = ForeignKey(to=Work, on_delete=CASCADE, related_name='students', verbose_name='Работа')
     date = DateField()
+    teacher = ForeignKey(to=ClientSystem, on_delete=CASCADE, related_name='teacher_works', verbose_name='Преподаватель', null=True, blank=True)
 
     class Meta:
         verbose_name = 'Лабораторная работа студента'
